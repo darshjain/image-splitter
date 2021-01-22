@@ -4,7 +4,7 @@ import os
 from PIL import Image, ImageTk
 from tkinter import filedialog
 
-global rows,columns
+global rows, columns
 rows = columns = 3
 
 # ------------------ Window---------------------
@@ -15,7 +15,7 @@ window.title("Image Splitter")
 
 # ------------------Blank PlaceHolder------------
 blank_image = Image.open("blank.png")
-blank_image = blank_image.resize((500, 500), Image.ANTIALIAS)
+blank_image = blank_image.resize((800, 500), Image.ANTIALIAS)
 blank_image = ImageTk.PhotoImage(blank_image)
 
 # ------------------Functions--------------------
@@ -26,10 +26,13 @@ def add_photo_dialog():
     filename = filedialog.askopenfilename()
 
     image = Image.open(filename)
-    image = image.resize((500, 500), Image.ANTIALIAS)
+    image = image.resize((800, 500), Image.ANTIALIAS)
     photo_selected = ImageTk.PhotoImage(image)
     label_display["image"] = photo_selected
 
+def divide_photo():
+    rows=int(label_rows.get())
+    columns=int(label_columns.get())
 
 # ------------------Components---------------------
 add_file = tk.Button(
@@ -43,41 +46,41 @@ process_photo = tk.Button(
     text="Process And Save",
     width=70,
     height=3,
-    command="",
+    command=divide_photo,
     font=('Helvetica', 10, 'bold'),
 )
 label_display = tk.Label(
     text="",
     image=blank_image,
-    width=500,
+    width=800,
     height=500,
 )
-label_rows=tk.Label(
+label_rows = tk.Label(
     text="Number Of Rows to be divided",
     height=1,
     width=30,
 )
-label_columns=tk.Label(
+label_columns = tk.Label(
     text="Number Of Columns to be divided",
     height=1,
     width=30,
 )
-rows_textbox=tk.Entry(
+rows_textbox = tk.Entry(
     width=5,
     borderwidth=5,
 )
-columns_textbox=tk.Entry(
+columns_textbox = tk.Entry(
     width=5,
     borderwidth=5,
 )
-#--------------------Add to Layout-------------------
-label_display.grid(column=0, row=0,columnspan=4)
-add_file.grid(column=0, row=3,columnspan=2)
-process_photo.grid(column=2,row=3,columnspan=2)
-label_columns.grid(column=0,row=2)
-columns_textbox.grid(column=1,row=2)
-label_rows.grid(column=2,row=2)
-rows_textbox.grid(column=3,row=2)
+# --------------------Add to Layout-------------------
+label_display.grid(column=0, row=0, columnspan=4)
+add_file.grid(column=0, row=3, columnspan=2)
+process_photo.grid(column=2, row=3, columnspan=2)
+label_columns.grid(column=0, row=2)
+columns_textbox.grid(column=1, row=2)
+label_rows.grid(column=2, row=2)
+rows_textbox.grid(column=3, row=2)
 
 
 window.mainloop()
