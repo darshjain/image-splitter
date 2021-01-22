@@ -4,6 +4,7 @@ import os
 from PIL import Image, ImageTk
 from tkinter import filedialog
 
+global rows,columns
 rows = columns = 3
 
 # ------------------ Window---------------------
@@ -51,7 +52,18 @@ label_display = tk.Label(
     width=500,
     height=500,
 )
-label_display.grid(column=0, row=0)
-add_file.grid(column=0, row=1)
-process_photo.grid(column=0,row=2)
+rows_textbox=tk.Entry(
+    width=20,
+    borderwidth=5,
+)
+columns_textbox=tk.Entry(
+    width=20,
+    borderwidth=5,
+)
+#--------------------Add to Layout-------------------
+label_display.grid(column=0, row=0,columnspan=2)
+add_file.grid(column=0, row=3)
+process_photo.grid(column=1,row=3)
+columns_textbox.grid(column=0,row=2)
+rows_textbox.grid(column=1,row=2)
 window.mainloop()
