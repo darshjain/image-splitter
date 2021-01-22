@@ -9,7 +9,7 @@ rows = columns = 3
 
 # ------------------ Window---------------------
 window = tk.Tk()
-window.geometry("700x700")
+window.geometry("900x700")
 window.grid_columnconfigure((0, 1), weight=1)
 window.title("Image Splitter")
 
@@ -52,18 +52,32 @@ label_display = tk.Label(
     width=500,
     height=500,
 )
+label_rows=tk.Label(
+    text="Number Of Rows to be divided",
+    height=1,
+    width=30,
+)
+label_columns=tk.Label(
+    text="Number Of Columns to be divided",
+    height=1,
+    width=30,
+)
 rows_textbox=tk.Entry(
-    width=20,
+    width=5,
     borderwidth=5,
 )
 columns_textbox=tk.Entry(
-    width=20,
+    width=5,
     borderwidth=5,
 )
 #--------------------Add to Layout-------------------
-label_display.grid(column=0, row=0,columnspan=2)
-add_file.grid(column=0, row=3)
-process_photo.grid(column=1,row=3)
-columns_textbox.grid(column=0,row=2)
-rows_textbox.grid(column=1,row=2)
+label_display.grid(column=0, row=0,columnspan=4)
+add_file.grid(column=0, row=3,columnspan=2)
+process_photo.grid(column=2,row=3,columnspan=2)
+label_columns.grid(column=0,row=2)
+columns_textbox.grid(column=1,row=2)
+label_rows.grid(column=2,row=2)
+rows_textbox.grid(column=3,row=2)
+
+
 window.mainloop()
