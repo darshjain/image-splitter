@@ -12,13 +12,14 @@ window.geometry("700x700")
 window.grid_columnconfigure((0, 1), weight=1)
 window.title("Image Splitter")
 
-#------------------Blank PlaceHolder------------
-blank_image=Image.open("blank.png")
-blank_image=blank_image.resize((500,500),Image.ANTIALIAS)
+# ------------------Blank PlaceHolder------------
+blank_image = Image.open("blank.png")
+blank_image = blank_image.resize((500, 500), Image.ANTIALIAS)
 blank_image = ImageTk.PhotoImage(blank_image)
-# label_display["image"]=blank_image
 
-#------------------Functions--------------------
+# ------------------Functions--------------------
+
+
 def add_photo_dialog():
     global photo_selected
     filename = filedialog.askopenfilename()
@@ -28,12 +29,20 @@ def add_photo_dialog():
     photo_selected = ImageTk.PhotoImage(image)
     label_display["image"] = photo_selected
 
+
 # ------------------Components---------------------
 add_file = tk.Button(
     text="ADD FILE",
     width=70,
     height=3,
     command=add_photo_dialog,
+    font=('Helvetica', 10, 'bold'),
+)
+process_photo = tk.Button(
+    text="Process And Save",
+    width=70,
+    height=3,
+    command="",
     font=('Helvetica', 10, 'bold'),
 )
 label_display = tk.Label(
@@ -44,4 +53,5 @@ label_display = tk.Label(
 )
 label_display.grid(column=0, row=0)
 add_file.grid(column=0, row=1)
+process_photo.grid(column=0,row=2)
 window.mainloop()
