@@ -12,18 +12,18 @@ def add_photo_dialog():
     filename = filedialog.askopenfilename()
     
     image=Image.open(filename)
-    image = image.resize((450, 350), Image.ANTIALIAS)
+    image = image.resize((500, 500), Image.ANTIALIAS)
     photo_selected = ImageTk.PhotoImage(image)
     label_display["image"]=photo_selected
 
 
-# ------------------ window---------------------
+# ------------------ Window---------------------
 window = tk.Tk()
 window.geometry("700x700")
 window.grid_columnconfigure((0, 1), weight=1)
 window.title("Image Splitter")
 
-# ------------------buttons---------------------
+# ------------------Components---------------------
 add_file = tk.Button(
     text="ADD FILE",
     width=70,
@@ -36,7 +36,6 @@ label_display = tk.Label(
     image="",
     width=500,
     height=500,
-    border=4,
 )
 
 add_file.grid(column=0, row=0)
