@@ -10,11 +10,11 @@ rows = columns = 3
 def add_photo_dialog():
     global photo_selected
     filename = filedialog.askopenfilename()
-    
-    image=Image.open(filename)
+
+    image = Image.open(filename)
     image = image.resize((500, 500), Image.ANTIALIAS)
     photo_selected = ImageTk.PhotoImage(image)
-    label_display["image"]=photo_selected
+    label_display["image"] = photo_selected
 
 
 # ------------------ Window---------------------
