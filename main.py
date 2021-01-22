@@ -13,9 +13,6 @@ def add_photo_dialog():
     
     image=Image.open(filename)
     image = image.resize((450, 350), Image.ANTIALIAS)
-    #my_img = ImageTk.PhotoImage(image)
-
-#   resized_image=image.resize((500,500),Image.ANTIALIAS)
     photo_selected = ImageTk.PhotoImage(image)
     label_display["image"]=photo_selected
 
