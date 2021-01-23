@@ -30,17 +30,16 @@ def add_photo_dialog():
     photo_selected = ImageTk.PhotoImage(image)
     label_display["image"] = photo_selected
 
-def image_crop(input, xPieces, yPieces):
+def image_crop(input, x_pieces, y_pieces):
     filename, file_extension = os.path.splitext(input)
     im = Image.open(input)
-    imgwidth, imgheight = im.size
-    height = imgheight // yPieces
-    width = imgwidth // xPieces
-    for i in range(0, yPieces):
-        for j in range(0, xPieces):
+    image_width, image_height = im.size
+    height = image_height // y_pieces
+    width = image_width // x_pieces
+    for i in range(0, y_pieces):
+        for j in range(0, x_pieces):
             box = (j * width, i * height, (j + 1) * width, (i + 1) * height)
             a = im.crop(box)
-
             out = os.path.join("Output//", f'{i}_{j}{file_extension}')
             im.crop(box).save(out)
 
