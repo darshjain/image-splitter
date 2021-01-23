@@ -32,16 +32,16 @@ def add_photo_dialog():
 
 def image_crop(input, x_pieces, y_pieces):
     filename, file_extension = os.path.splitext(input)
-    im = Image.open(input)
-    image_width, image_height = im.size
+    image_handle = Image.open(input)
+    image_width, image_height = image_handle.size
     height = image_height // y_pieces
     width = image_width // x_pieces
     for i in range(0, y_pieces):
         for j in range(0, x_pieces):
             box = (j * width, i * height, (j + 1) * width, (i + 1) * height)
-            a = im.crop(box)
+            a = image_handle.crop(box)
             out = os.path.join("Output//", f'{i}_{j}{file_extension}')
-            im.crop(box).save(out)
+            image_handle.crop(box).save(out)
 
 def divide_photo():
     rows=int(rows_textbox.get())
