@@ -40,25 +40,15 @@ def image_crop(input, xPieces, yPieces):
         for j in range(0, xPieces):
             box = (j * width, i * height, (j + 1) * width, (i + 1) * height)
             a = im.crop(box)
-            try:
-                a.save("images/" + filename + "-" + str(i) + "-" + str(j) + file_extension)
-            except:
-                pass
+
+            out = os.path.join("images//", f'{filename}_{i}_{j}{file_extension}')
+            im.crop(box).save(out)
 
 def divide_photo():
     rows=int(rows_textbox.get())
     columns=int(columns_textbox.get())
     image_crop(filename,rows,columns)
-    # image = Image.open(filename)
-    # width,height=image.size
-    # width_image=int(800/rows)
-    # height_image=int(500/columns)
-
-    # grid = list(product(range(0, height-height%height_image, height_image), range(0, width-width%width_image, width_image)))
-
-    # for i,j in grid:
-    #     box = (j, i, j+rows, i+columns)
-
+    
 # ------------------Components---------------------
 add_file = tk.Button(
     text="ADD FILE",
