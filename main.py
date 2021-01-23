@@ -39,7 +39,6 @@ def image_crop(input, x_pieces, y_pieces):
     for i in range(0, y_pieces):
         for j in range(0, x_pieces):
             box = (j * width, i * height, (j + 1) * width, (i + 1) * height)
-            a = image_handle.crop(box)
             out = os.path.join("Output//", f'{i}_{j}{file_extension}')
             image_handle.crop(box).save(out)
 
