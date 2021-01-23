@@ -22,27 +22,42 @@ blank_image = ImageTk.PhotoImage(blank_image)
 
 def add_photo_dialog():
     global photo_selected
+    global filename
     filename = filedialog.askopenfilename()
+
     image = Image.open(filename)
     image = image.resize((800, 500), Image.ANTIALIAS)
     photo_selected = ImageTk.PhotoImage(image)
     label_display["image"] = photo_selected
 
+def image_crop(input, xPieces, yPieces):
+    filename, file_extension = os.path.splitext(input)
+    im = Image.open(input)
+    imgwidth, imgheight = im.size
+    height = imgheight // yPieces
+    width = imgwidth // xPieces
+    for i in range(0, yPieces):
+        for j in range(0, xPieces):
+            box = (j * width, i * height, (j + 1) * width, (i + 1) * height)
+            a = im.crop(box)
+            try:
+                a.save("images/" + filename + "-" + str(i) + "-" + str(j) + file_extension)
+            except:
+                pass
+
 def divide_photo():
     rows=int(rows_textbox.get())
     columns=int(columns_textbox.get())
-    width_image=int(800/rows)
-    height_image=int(500/columns)
+    image_crop(filename,rows,columns)
+    # image = Image.open(filename)
+    # width,height=image.size
+    # width_image=int(800/rows)
+    # height_image=int(500/columns)
 
-    filename = filedialog.askopenfilename()
-    image = Image.open(filename)
-    w,h=image.size()
+    # grid = list(product(range(0, height-height%height_image, height_image), range(0, width-width%width_image, width_image)))
 
-    # cropped_images={}
-    # for i in range(rows-1):
-    #     for j in range(columns-1):
-    #         box=(i*width_image,j*height_image,(i+1)*height_image,(j+1)*height_image)
-    #         cropped_images=(photo_selected.crop(box))
+    # for i,j in grid:
+    #     box = (j, i, j+rows, i+columns)
 
 # ------------------Components---------------------
 add_file = tk.Button(
