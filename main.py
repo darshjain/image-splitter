@@ -20,19 +20,29 @@ blank_image = ImageTk.PhotoImage(blank_image)
 
 # ------------------Functions--------------------
 
-
 def add_photo_dialog():
     global photo_selected
     filename = filedialog.askopenfilename()
-
     image = Image.open(filename)
     image = image.resize((800, 500), Image.ANTIALIAS)
     photo_selected = ImageTk.PhotoImage(image)
     label_display["image"] = photo_selected
 
 def divide_photo():
-    rows=int(label_rows.get())
-    columns=int(label_columns.get())
+    rows=int(rows_textbox.get())
+    columns=int(columns_textbox.get())
+    width_image=int(800/rows)
+    height_image=int(500/columns)
+
+    filename = filedialog.askopenfilename()
+    image = Image.open(filename)
+    w,h=image.size()
+
+    # cropped_images={}
+    # for i in range(rows-1):
+    #     for j in range(columns-1):
+    #         box=(i*width_image,j*height_image,(i+1)*height_image,(j+1)*height_image)
+    #         cropped_images=(photo_selected.crop(box))
 
 # ------------------Components---------------------
 add_file = tk.Button(
