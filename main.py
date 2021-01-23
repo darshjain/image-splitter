@@ -14,7 +14,7 @@ window.grid_columnconfigure((0, 1), weight=1)
 window.title("Image Splitter")
 
 # ------------------Blank PlaceHolder------------
-blank_image = Image.open("blank.png")
+blank_image = Image.open("Assets/blank.png")
 blank_image = blank_image.resize((800, 500), Image.ANTIALIAS)
 blank_image = ImageTk.PhotoImage(blank_image)
 
@@ -41,14 +41,14 @@ def image_crop(input, xPieces, yPieces):
             box = (j * width, i * height, (j + 1) * width, (i + 1) * height)
             a = im.crop(box)
 
-            out = os.path.join("images//", f'{filename}_{i}_{j}{file_extension}')
+            out = os.path.join("Output//", f'{i}_{j}{file_extension}')
             im.crop(box).save(out)
 
 def divide_photo():
     rows=int(rows_textbox.get())
     columns=int(columns_textbox.get())
     image_crop(filename,rows,columns)
-    
+
 # ------------------Components---------------------
 add_file = tk.Button(
     text="ADD FILE",
@@ -96,6 +96,5 @@ label_columns.grid(column=0, row=2)
 columns_textbox.grid(column=1, row=2)
 label_rows.grid(column=2, row=2)
 rows_textbox.grid(column=3, row=2)
-
 
 window.mainloop()
