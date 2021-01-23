@@ -14,8 +14,8 @@ This program is based on python and uses the following libraries:-
 <li>Pillow
 </ul>
 
+### Libraries installation 
 ``` bash 
-# Libraries installation 
 # For Windows
 $ pip install tk
 $ pip install pillow
