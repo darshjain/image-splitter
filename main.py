@@ -20,6 +20,7 @@ blank_image = ImageTk.PhotoImage(blank_image)
 
 # ------------------Functions--------------------
 
+
 def add_photo_dialog():
     global photo_selected
     global filename
@@ -29,6 +30,7 @@ def add_photo_dialog():
     image = image.resize((800, 500), Image.ANTIALIAS)
     photo_selected = ImageTk.PhotoImage(image)
     label_display["image"] = photo_selected
+
 
 def image_crop(input, x_pieces, y_pieces):
     filename, file_extension = os.path.splitext(input)
@@ -42,10 +44,12 @@ def image_crop(input, x_pieces, y_pieces):
             out = os.path.join("Output//", f'{i}_{j}{file_extension}')
             image_handle.crop(box).save(out)
 
+
 def divide_photo():
-    rows=int(rows_textbox.get())
-    columns=int(columns_textbox.get())
-    image_crop(filename,rows,columns)
+    rows = int(rows_textbox.get())
+    columns = int(columns_textbox.get())
+    image_crop(filename, rows, columns)
+
 
 # ------------------Components---------------------
 add_file = tk.Button(
@@ -86,7 +90,7 @@ columns_textbox = tk.Entry(
     width=5,
     borderwidth=5,
 )
-label_preview =tk.Label(
+label_preview = tk.Label(
     text="Preview",
     font=('Helvetica', 10, 'bold'),
 )
@@ -98,6 +102,6 @@ label_columns.grid(column=0, row=2)
 columns_textbox.grid(column=1, row=2)
 label_rows.grid(column=2, row=2)
 rows_textbox.grid(column=3, row=2)
-label_preview.place(x=60,y=10)
+label_preview.place(x=60, y=10)
 
 window.mainloop()
