@@ -24,3 +24,14 @@ $ pip install pillow
 $ sudo apt-get install python3-tk
 $ pip3 install pillow
 ```
+
+### OUTPUT->>
+#### Default Screen
+<img src="Assets/default_window.png" height=300px><br>
+
+#### Inputs Entered
+<img src="Assets/input_window.png" height=300px><br>
+
+#### Saved Output
+<img src="Assets/output_window.png" width=800px><br>
+
