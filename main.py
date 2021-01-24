@@ -13,7 +13,7 @@ window.geometry("900x700")
 window.grid_columnconfigure((0, 1), weight=1)
 window.title("Image Splitter")
 
-# ------------------Blank PlaceHolder------------
+# ---------------Blank PlaceHolder---------------
 blank_image = Image.open("Assets/blank.png")
 blank_image = blank_image.resize((800, 500), Image.ANTIALIAS)
 blank_image = ImageTk.PhotoImage(blank_image)
@@ -86,6 +86,10 @@ columns_textbox = tk.Entry(
     width=5,
     borderwidth=5,
 )
+label_preview =tk.Label(
+    text="Preview",
+    font=('Helvetica', 10, 'bold'),
+)
 # --------------------Add to Layout-------------------
 label_display.grid(column=0, row=0, columnspan=4)
 add_file.grid(column=0, row=3, columnspan=2)
@@ -94,5 +98,6 @@ label_columns.grid(column=0, row=2)
 columns_textbox.grid(column=1, row=2)
 label_rows.grid(column=2, row=2)
 rows_textbox.grid(column=3, row=2)
+label_preview.place(x=60,y=10)
 
 window.mainloop()
