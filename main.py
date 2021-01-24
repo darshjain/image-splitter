@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import *
 import os
 from PIL import Image, ImageTk
-from tkinter import filedialog,messagebox
+from tkinter import filedialog
 
 global rows, columns
 rows = columns = 3
@@ -41,12 +41,16 @@ def image_crop(input, x_pieces, y_pieces):
         width = image_width // x_pieces
         for i in range(0, y_pieces):
             for j in range(0, x_pieces):
-                box = (j * width, i * height, (j + 1) * width, (i + 1) * height)
+                box = (j * width, i * height, (j + 1)
+                       * width, (i + 1) * height)
                 out = os.path.join("Output//", f'{i}_{j}{file_extension}')
                 image_handle.crop(box).save(out)
-                tk.messagebox.showinfo(title="Successful",message="Images saved in Output folder")
+                tk.messagebox.showinfo(
+                    title="Successful", message="Images saved in Output folder")
     except:
-        tk.messagebox.showinfo(title="Error",message="Error While Generating images")
+        tk.messagebox.showinfo(
+            title="Error", message="Error While Generating images")
+
 
 def divide_photo():
     try:
@@ -54,7 +58,8 @@ def divide_photo():
         columns = int(columns_textbox.get())
         image_crop(filename, rows, columns)
     except:
-        tk.messagebox.showinfo(title="Error",message="Please Enter Values of rows and columns")
+        tk.messagebox.showinfo(
+            title="Error", message="Please Enter Values of rows and columns")
 
 
 # ------------------Components---------------------
