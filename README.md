@@ -32,6 +32,8 @@ $ pip3 install pillow
 #### Inputs Entered
 <img src="Assets/input_window.png" height=300px><br>
 
+### Output Successful
+<img src="Assets/Output%20Successful.png" height=300px><br>
 #### Saved Output
 <img src="Assets/output_window.png" width=800px><br>
 

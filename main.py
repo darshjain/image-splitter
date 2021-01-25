@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import *
 import os
 from PIL import Image, ImageTk
-from tkinter import filedialog
+from tkinter import filedialog,messagebox
 
 global rows, columns
 rows = columns = 3
