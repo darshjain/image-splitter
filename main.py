@@ -45,8 +45,9 @@ def image_crop(input, x_pieces, y_pieces):
                        * width, (i + 1) * height)
                 out = os.path.join("Output//", f'{i}_{j}{file_extension}')
                 image_handle.crop(box).save(out)
-                tk.messagebox.showinfo(
-                    title="Successful", message="Images saved in Output folder")
+
+        tk.messagebox.showinfo(
+            title="Successful", message="Images saved in Output folder")
     except:
         tk.messagebox.showinfo(
             title="Error", message="Error While Generating images")
