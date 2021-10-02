@@ -73,16 +73,16 @@ add_file = tk.Button(
 )
 process_photo = tk.Button(
     text="Process And Save",
-    width=70,
+    width=71,
     height=3,
     command=divide_photo,
-    font=('Helvetica', 10, 'bold'),
+    font=('Roman', 10, 'bold'),
 )
 label_display = tk.Label(
     text="",
     image=blank_image,
-    width=800,
-    height=500,
+    width=801,
+    height=501,
 )
 label_rows = tk.Label(
     text="Number Of Rows to be divided",
